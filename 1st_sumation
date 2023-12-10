@@ -1,0 +1,46 @@
+ll a[N],tre[4*N];
+
+void build(int node,int st,int et){
+
+if(st==et){
+
+
+    tre[node]=a[st];
+    return ;
+}
+int mid=(st+et)/2;
+build(2*node,st,mid);
+
+build(2*node+1,mid+1,et);
+
+tre[node]=tre[2*node]+tre[2*node+1];
+
+
+
+}
+
+
+void s2(){
+
+int n;
+cin>>n;
+
+
+arin(a,0,n);
+pn(a,n);
+
+int l=ceil(log2(n));
+l=1<<(l+1);
+build(1,0,n-1);
+
+for(int i=1;i<l;i++){
+
+    cout<<tre[i]<<" ";
+
+}
+cout<<endl;
+
+
+
+
+}
